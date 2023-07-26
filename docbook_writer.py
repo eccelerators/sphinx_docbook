@@ -810,6 +810,8 @@ class DocBookTranslator(nodes.NodeVisitor):
 
         # Many options are supported for imagedata
         imagedata_attribs = {}
+        
+        message = ("MESSAGE Scale:")    
 
         if node.hasattr('uri'):
             imagedata_attribs['fileref'] = node['uri']
@@ -824,7 +826,7 @@ class DocBookTranslator(nodes.NodeVisitor):
             pass # not in docbook
 
         if node.hasattr('scale'):
-            imagedata_attribs['scale'] = node['scale']
+            imagedata_attribs['scale'] = str(node['scale'])  
 
         if node.hasattr('align'):
             alignval = node['align']
